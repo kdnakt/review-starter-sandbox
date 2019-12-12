@@ -1,0 +1,7 @@
+version: '3'
+services:
+  pdf:
+    image: kauplan/review2.5
+    volumes:
+      - .:/work
+    command: /bin/bash -c "cd /work && rake pdf"
