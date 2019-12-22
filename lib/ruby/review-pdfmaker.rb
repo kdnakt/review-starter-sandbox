@@ -293,7 +293,8 @@ module ReVIEW
     end
 
     def pdf_filepath
-      return File.join(@basedir, "#{@config['bookname']}.pdf")
+      build_datetime = DateTime.now.new_offset('+09:00').strftime("%Y%m%d_%H%M%S")
+      return File.join(@basedir, "#{@config['bookname']}_#{build_datetime}.pdf")
     end
 
     def remove_old_file
