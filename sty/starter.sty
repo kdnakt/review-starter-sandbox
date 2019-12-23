@@ -804,7 +804,7 @@
 \let\original@l@subsection=\l@subsection          % もとの定義を保存
 \renewcommand*{\l@subsection}[2]{{%
   \baselineskip=0.90\baselineskip%                % 行間を狭める
-  \original@l@subsection{\small #1}{\small #2}%   % フォントを少し小さく
+  \original@l@subsection{\small\gtfamily\sffamily #1}{\small #2}%   % フォントを少し小さく、ゴシック体に変更
 }}
 
 %%% 目次での目 (Subsubsection) を小さくして行間を狭める
