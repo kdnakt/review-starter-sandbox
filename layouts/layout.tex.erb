@@ -50,7 +50,9 @@
 <%- else -%>
 \usepackage[dvipdfmx]{graphicx}
 <%- end -%>
-\usepackage[dvipdfmx,table]{xcolor}%requires colortbl, array
+% テーブルヘッダ色変更対応
+\usepackage[dvipdfmx,table,svgnames]{xcolor}%requires colortbl, array
+\usepackage{etoolbox}
 \usepackage{framed}
 \usepackage{wrapfig}
 \definecolor{shadecolor}{gray}{0.9}
@@ -159,6 +161,10 @@
 \newenvironment{reviewbox}{%
   \medskip\small\begin{framed}\setlength{\baselineskip}{1.3zw}\begin{alltt}}{%
   \end{alltt}\end{framed}}
+
+% テーブルヘッダの色を変更
+\colorlet{headercolor}{DarkSeaGreen!40}
+\AtBeginEnvironment{tabular}{\rowcolors{1}{\ifnumless{\rownum}{2}{headercolor}{white}}{}}
 
 \newenvironment{reviewtable}[1]{%
   \begin{center}\small\setlength{\baselineskip}{1.2zw}
