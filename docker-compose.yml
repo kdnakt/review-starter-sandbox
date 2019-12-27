@@ -5,3 +5,9 @@ services:
     volumes:
       - .:/work
     command: /bin/bash -c "cd /work && rake pdf"
+
+  pdfp:
+    image: kauplan/review2.5
+    volumes:
+      - .:/work
+    command: /bin/bash -c "cd /work && PDFPASSWORD=true rake pdf"

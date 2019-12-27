@@ -409,7 +409,11 @@ module ReVIEW
       end
       call_hook('hook_aftertexcompile')
       return unless File.exist?("#{base}.dvi")
-      run_cmd!("#{dvipdf} #{base}.dvi")
+      if ENV["PDFPASSWORD"] == "true"
+        run_cmd!("#{dvipdf} -S #{base}.dvi")
+      else
+        run_cmd!("#{dvipdf} #{base}.dvi")
+      end
       call_hook('hook_afterdvipdf')
     end
 
