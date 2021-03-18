@@ -832,11 +832,10 @@ module ReVIEW
     ##
     ## に展開されてしまう。
     ## つまり改行のつもりが改段落になってしまう。
-    def inline_br(_str)
+    def inline_br(s)
       #"\\\\\n"   # original
-      "\\\\{}"
+      "\\\\{}" * (s.present? ? s.to_i : 1)
     end
-
 
     ## コードブロック（//program, //terminal）
 
