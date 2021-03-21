@@ -17,6 +17,7 @@ module ReVIEW
   Compiler.definline :TeX               ## TeX のロゴマーク
   Compiler.definline :LaTeX             ## LaTeX のロゴマーク
   Compiler.definline :hoge
+  Compiler.definline :br7
 
   ## ブロック命令「//textleft{ ... //}」等を宣言
   ## （ここでは第2引数が「0」なので、引数なしのブロック命令になる。
@@ -68,6 +69,9 @@ module ReVIEW
       '\LaTeX{}'
     end
 
+    def inline_br7(str)
+      "\\\\[0pt]" * 7
+    end
     def inline_hoge(str)
       "hoge #{str} hoge"
     end
